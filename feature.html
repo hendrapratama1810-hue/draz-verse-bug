@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>DRAZ VERSE FEATURE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{
+    min-height:100vh;
+    background:#050505;
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+/* BACKGROUND GEOMETRIS */
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    background:
+        repeating-linear-gradient(
+            45deg,
+            rgba(0,255,150,.18) 0 20px,
+            transparent 20px 40px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            rgba(0,180,255,.12) 0 20px,
+            transparent 20px 40px
+        );
+    filter:blur(16px);
+    animation:bgMove 22s linear infinite;
+}
+@keyframes bgMove{
+    from{background-position:0 0}
+    to{background-position:700px 700px}
+}
+
+/* BACK BUTTON */
+.back{
+    position:fixed;
+    top:14px;
+    left:14px;
+    padding:6px 12px;
+    background:#00ff88;
+    color:black;
+    border-radius:8px;
+    box-shadow:0 0 12px #00ff88;
+    cursor:pointer;
+}
+
+/* AVATAR GIF BULAT */
+.avatar{
+    width:110px;
+    height:110px;
+    margin:60px auto 12px;
+    border-radius:50%;
+    overflow:hidden;
+    background:#000;
+    box-shadow:
+        0 0 12px #00ff88,
+        0 0 28px rgba(0,255,136,.7),
+        inset 0 0 18px rgba(0,255,136,.9);
+}
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* INPUT */
+input{
+    width:85%;
+    padding:12px;
+    margin-top:12px;
+    border:none;
+    border-radius:10px;
+    background:#111;
+    color:#00ff88;
+    box-shadow:0 0 8px rgba(0,255,136,.4);
+    outline:none;
+}
+
+/* BUTTON NEON */
+button{
+    width:85%;
+    padding:13px;
+    margin-top:12px;
+    border:none;
+    border-radius:10px;
+    background:#00ff88;
+    color:black;
+    font-weight:bold;
+    font-size:15px;
+    cursor:pointer;
+    box-shadow:
+        0 0 12px #00ff88,
+        0 0 30px rgba(0,255,136,.7);
+}
+button:active{
+    transform:scale(0.96);
+}
+
+/* LIST FEATURE */
+.list{
+    display:none;
+    width:85%;
+    margin:10px auto;
+    background:#000;
+    border-radius:10px;
+    box-shadow:0 0 12px #00ff88;
+}
+.list div{
+    padding:10px;
+    border-bottom:1px solid #033;
+    cursor:pointer;
+}
+.list div:last-child{
+    border-bottom:none;
+}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+
+<div class="back" onclick="location.href='page2.html'">Back</div>
+
+<!-- GANTI feature.gif DENGAN GIF KAMU -->
+<div class="avatar">
+    <img src="feature.gif" alt="Feature GIF">
+</div>
+
+<h3>DRAZ VERSE<br>FEATURE</h3>
+
+<input placeholder="No Target / Link">
+
+<button id="pick" onclick="toggleList()">Pilihan Fitur</button>
+
+<div id="list" class="list">
+    <div onclick="setFeature('Bug Crash')">Bug Crash</div>
+    <div onclick="setFeature('Bug Delay')">Bug Delay</div>
+    <div onclick="setFeature('Bug Force Close')">Bug Force Close</div>
+    <div onclick="setFeature('Bug Phone Off')">Bug Phone Off</div>
+    <div onclick="setFeature('Bug Super')">Bug Super</div>
+    <div onclick="setFeature('Bug Reset😈')">Bug Reset😈</div>
+    <div onclick="setFeature('Tiktok Downloader')">Tiktok Downloader</div>
+    <div onclick="setFeature('Instagram Downloader')">Instagram Downloader</div>
+    <div onclick="setFeature('Pinterest Downloader')">Pinterest Downloader</div>
+</div>
+
+<button id="action">Send Bug</button>
+
+<script>
+function toggleList(){
+    list.style.display = list.style.display === "block" ? "none" : "block";
+}
+
+function setFeature(name){
+    pick.innerText = name;
+    list.style.display = "none";
+    action.innerText = name.includes("Downloader") ? "Download" : "Send Bug";
+}
+</script>
+
+</body>
+</html>
